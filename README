@@ -1,0 +1,45 @@
+- I have used Flask framework to build a small web service that will take the given URL and return whether it's a known malware URL or not.
+- Known malware URLs are saved in a csv file called url_database.csv.
+- Please follow the below steps to test my service:
+
+1. Go to your terminal and clone my git repository. Execute this command - "git clone https://github.com/alindjain22/cisco"
+   A directory called "cisco" will be created. Go into that directory.
+
+2. Make sure you have python3 installed in your system. My system has Python 3.10.6. Type "python --version" in your command line to see the version of python installed.
+
+3. Make sure you have pip3 installed in your system. Command to check is "pip --version"
+   My system has this pip version - "pip 22.3.1 from /usr/local/lib/python3.10/site-packages/pip (python 3.10)"
+
+4. Create python virtual environment inside the "cisco" directory. Execute these commands inside the "cisco" directory. Execute command - "python -m venv venv"
+   Then execute command - "source venv/bin/activate"
+
+5. Install flask and pandas library using these commands
+   "pip install flask"
+   "pip install pandas"
+
+6. Execute this command - "export FLASK_APP=malwareLookupService"
+
+7. Execute command "flask run"
+   This will start my service on your localhost IP which is 127.0.0.1 and port 5000
+   You will see terminal output like following:
+   """
+    * Serving Flask app 'malwareLookupService'
+    * Debug mode: off
+    WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+    * Running on http://127.0.0.1:5000
+    Press CTRL+C to quit
+   """
+
+8. Open a browser and type "http://127.0.0.1:5000" in the address bar of the browser. The page will show "Welcome!"
+
+9. Now to check whether a URL is malware or not, type it in the browser address bar in this format: "http://127.0.0.1:5000/v1/urlinfo/dummy_url". This format is based on the given problem statement.
+   Some more examples are: "http://127.0.0.1:5000/v1/urlinfo/www.cisco.com"
+                           "http://127.0.0.1:5000/v1/urlinfo/www.100.com"
+
+10. If the passed URL is present in the "url_database.csv" file, the service will return "The URL is known Malware. DO NOT PROCEED!!!!!"
+    If the passed URL is not present in the "url_database.csv" file, the service will return "The URL is safe to proceed."
+    "http://127.0.0.1:5000/v1/urlinfo/www.cisco.com" - This will return "The URL is safe to proceed."
+    "http://127.0.0.1:5000/v1/urlinfo/www.100.com" - This will return "The URL is known Malware. DO NOT PROCEED!!!!!"
+
+
+
